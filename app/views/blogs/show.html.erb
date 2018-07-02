@@ -1,0 +1,8 @@
+<fieldset>
+  <legend><%= @blog.title %></legend>
+
+  <h3><%= @blog.subtitle %></h3>
+  <p><%= @blog.body %></p>
+  <%= link_to 'Edit', edit_blog_path(@blog) %>
+  <%= link_to 'Back', blogs_path %>
+</fieldset>

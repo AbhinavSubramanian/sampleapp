@@ -1,0 +1,41 @@
+<%= form_for(@blog) do |form| %>
+  <% if @blog.errors.any? %>
+    <div>
+      <ul>
+        <% @blog.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :subtitle %>
+    <%= form.text_field :subtitle %>
+  </div>
+
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <h3>Topics under this Blog</h3>
+  <ul>
+    <%= form.fields_for :topics do |topic| %>
+      <li>
+        <%= topic.label :name %>
+        <%= topic.text_field :name %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div>
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>
+<%= link_to 'Back', blogs_path %>
